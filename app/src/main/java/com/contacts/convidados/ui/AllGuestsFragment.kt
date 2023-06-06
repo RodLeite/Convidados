@@ -1,4 +1,4 @@
-package com.contacts.convidados.ui.gallery
+package com.contacts.convidados.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.contacts.convidados.databinding.FragmentGalleryBinding
+import com.contacts.convidados.databinding.FragmentAllGuestsBinding
 
-class GalleryFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+class AllGuestsFragment : Fragment() {
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentAllGuestsBinding? = null
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,14 +21,14 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        val allGuestsViewModel =
+            ViewModelProvider(this).get(AllGuestsViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textAllGuests
+        allGuestsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
