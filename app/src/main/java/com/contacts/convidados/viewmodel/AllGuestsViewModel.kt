@@ -1,4 +1,4 @@
-package com.contacts.convidados.ui
+package com.contacts.convidados.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
